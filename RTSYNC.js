@@ -138,18 +138,21 @@ app.use(async (ctx, next) => {
     await next();
 });
   
-let time = 0;
+let ticks = 0;
 
 setInterval( () => {
     
-    if( (time % 100) == 0 ) {
-        io.broadcast("sync",{ time })
-    }
+    io.broadcast("sync",{ ticks })
     
-    time++
-    time%=10000
+    ticks++
     
-}, 1 )
+    ticks%=1000000
+
+    // if( ticks % 100 == 0 ) {
+    // time++
+    // }
+    
+}, 5 )
 
 
 app.listen( process.env.PORT || 4000 );

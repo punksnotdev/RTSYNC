@@ -144,9 +144,9 @@ setInterval( () => {
     
     io.broadcast("sync",{ time })
     time++
-    time%=20000
+    time%=10000
     
-}, 12.5 )
+}, 1 )
 
 
 app.listen( process.env.PORT || 4000 );

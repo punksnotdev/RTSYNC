@@ -142,7 +142,10 @@ let time = 0;
 
 setInterval( () => {
     
-    io.broadcast("sync",{ time })
+    if( time %= 100 ) {
+        io.broadcast("sync",{ time })
+    }
+    
     time++
     time%=10000
     

@@ -142,7 +142,7 @@ let time = 0;
 
 setInterval( () => {
     
-    if( time %= 100 ) {
+    if( (time % 100) == 0 ) {
         io.broadcast("sync",{ time })
     }
     

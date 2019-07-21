@@ -141,8 +141,10 @@ app.use(async (ctx, next) => {
 let time = 0;
 
 setInterval( () => {
+    
     io.broadcast("sync",{ time })
     time++
+    time%=20000
     
 }, 12.5 )
 
